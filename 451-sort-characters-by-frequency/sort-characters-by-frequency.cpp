@@ -8,7 +8,7 @@ public:
     string frequencySort(string s) {
         int n = s.size();
         string res;
-        map<char, int> count;
+        unordered_map<char, int> count;
         for(int i=0; i<n; i++){
             count[s[i]]++;           
         }
