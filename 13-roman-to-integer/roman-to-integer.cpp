@@ -2,28 +2,27 @@ class Solution {
 public:
     int romanToInt(string s) {
         int i=0;
-        unordered_map<char, pair<int, int>> values = { {'I',{1,1}}, {'V', {2,5}}, {'X', {3, 10}}, {'L', {4,50}}, {'C', {5,100}}, {'D', {6, 500}}, {'M',{7,1000}} };
+        unordered_map<char, int> priority = { {'I',1}, {'V', 2}, {'X', 3}, {'L', 4}, {'C', 5}, {'D', 6}, {'M',7} };
+        unordered_map<char, int> values = { {'I',1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M',1000} };
         vector<char> stack;
         int res=0;
         int top=-1;
         while(s[i] != '\0'){
             if(top == -1){  stack.push_back(s[i]);  top++;}
             else{
-                pair<int, int> last = values[stack[top]];
-                pair<int, int> curr = values[s[i]];
-                if(curr.first > last.first){
+                if(priority[s[i]] > priority[stack[top]]){
                     stack.push_back(s[i]); top++;
                 }
-                else if(curr.first == last.first){
-                    res += 2*last.second;
+                else if(priority[s[i]] == priority[stack[top]]){
+                    res += 2*values[s[i]];
                     stack.pop_back();
                     top--;                }
                 else{
-                    int temp = last.second;
+                    int temp = values[stack[top]];
                     stack.pop_back();
                     top--;
                     while(top >= 0){
-                        temp -= values[stack[top]].second;
+                        temp -= values[stack[top]];
                         stack.pop_back();
                         top--;
                     }
@@ -35,9 +34,9 @@ public:
             i++;
         } 
         if(top == -1)   return res;
-        int temp = values[stack[top]].second;  top--;     
+        int temp = values[stack[top]];  top--;     
         while(top >= 0){
-            temp -= values[stack[top]].second;
+            temp -= values[stack[top]];
             stack.pop_back();
             top--;
         }
