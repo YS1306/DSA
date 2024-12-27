@@ -15,12 +15,11 @@ public:
                     stack.push_back(s[i]); top++;
                 }
                 else if(curr.first == last.first){
-                    res += values[stack[top]].second;
+                    res += 2*last.second;
                     stack.pop_back();
-                    stack.push_back(s[i]);
-                }
+                    top--;                }
                 else{
-                    int temp = values[stack[top]].second;
+                    int temp = last.second;
                     stack.pop_back();
                     top--;
                     while(top >= 0){
@@ -35,6 +34,7 @@ public:
             }
             i++;
         } 
+        if(top == -1)   return res;
         int temp = values[stack[top]].second;  top--;     
         while(top >= 0){
             temp -= values[stack[top]].second;
