@@ -12,7 +12,7 @@ public:
             if(values[curr] < values[prev]){
                 temp -= values[curr];
             }
-            else if(values[curr] >= values[prev]){
+            else{
                 res += temp;
                 temp = values[curr];
                 prev = curr;
