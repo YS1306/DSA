@@ -1,32 +1,48 @@
 class Solution {
 public:
+    bool ispal(string temp){
+        int n = temp.size();
+        for(int i=0; i <= n/2; i++){
+            if(temp[i] != temp[n-i-1])  return false;
+        }
+        return true;
+    }
+
+    string check(string s, string rev){
+        int i = 0;
+        int n = s.size();
+        string res = "";
+        while(i<n && n-i >= res.size()/2){
+            int j = 0;
+            while(j < n-i){
+                if(s[i] == rev[j]){
+                    int k = 0;
+                    int next = 0;
+                    string temp = "";
+                    int flag = true;
+                    while(i+k < n && j+k < n && s[i+k] == rev[j+k]){
+                        temp.push_back(s[i+k]);
+                        k++;
+                        if(rev[j+k] == s[i]){    next = j+k;  }
+                    }
+                    if(temp.size() > res.size() and ispal(temp))    res = temp;
+                    if(next)    j=next;
+                    else j = j+k;
+                }
+                else j++;
+            }
+            i++;
+        }    
+        return res;    
+    }
+
     string longestPalindrome(string s) {
-        int n = s.length(), index = 0, maxLength = 1, i = 0;
+        
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        string front = check(s, rev);
+        string back = check(rev, s);
 
-        if (n <= 1){
-            return s;
-        }
-
-        while (i < n && n - i > maxLength / 2) {
-            int j = i, k = i;
-
-            while (k < n - 1 && s[k + 1] == s[k]){
-                k++;
-            }
-            
-            i = k + 1;
-            
-            while (k < n - 1 && j > 0 && s[k + 1] == s[j - 1]) { 
-                k++; 
-                j--; 
-            }
-            
-            if (maxLength < k - j + 1) { 
-                index = j;
-                maxLength = k - j + 1;
-            }
-        }
-
-        return s.substr(index, maxLength);
+        return max(front, back);
     }
 };
