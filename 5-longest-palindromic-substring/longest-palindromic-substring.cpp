@@ -1,48 +1,57 @@
 class Solution {
 public:
-    bool ispal(string temp){
-        int n = temp.size();
-        for(int i=0; i <= n/2; i++){
-            if(temp[i] != temp[n-i-1])  return false;
+    string odd_pali(string s, int i){
+        int n = s.length();
+        string temp = "";
+        temp = temp+string(1,s[i]);
+        int j = 1;
+        while(i-j >= 0 && i+j < n && s[i-j] == s[i+j]){
+            temp = string(1,s[i-j])+temp+string(1,s[i+j]);
+            j++;
         }
-        return true;
+        return temp;
     }
 
-    string check(string s, string rev){
-        int i = 0;
-        int n = s.size();
-        string res = "";
-        while(i<n){
-            int j = 0;
-            while(j < n-i){
-                if(s[i] == rev[j]){
-                    int k = 0;
-                    int next = 0;
-                    string temp = "";
-                    int flag = true;
-                    while(i+k < n && j+k < n && s[i+k] == rev[j+k]){
-                        temp.push_back(s[i+k]);
-                        k++;
-                        if(rev[j+k] == s[i]){    next = j+k;  }
-                    }
-                    if(temp.size() > res.size() and ispal(temp))    res = temp;
-                    if(next)    j=next;
-                    else j = j+k;
-                }
-                else j++;
+    string even_pali(string s, int i){
+        int n = s.length();
+        bool left;
+        string temp = "";
+        if(i-1 >=0 && s[i-1] == s[i]){  left = true;   temp += string(1,s[i-1])+string(1,s[i]);     }
+        else if(i+1 <n && s[i] == s[i+1]){ left = false;  temp += string(1,s[i])+string(1,s[i+1]);     }
+        else return temp;
+        if(left){
+            int j = 1;
+
+            while(i-1-j >= 0 && i+j < n && s[i-1-j] == s[i+j]){
+                temp = string(1,s[i-1-j]) + temp + string(1,s[i+j]);
+                j++;
             }
-            i++;
-        }    
-        return res;    
+            return temp;
+        }
+        else{
+            int j = 1;
+            while(i-j >= 0 && i+1+j < n && s[i-j] == s[i+1+j]){
+
+                temp = string(1,s[i-j]) + temp + string(1,s[i+1+j]);
+                j++;
+            }
+            return temp;
+        }
     }
 
     string longestPalindrome(string s) {
-        
-        string rev = s;
-        reverse(rev.begin(), rev.end());
-        string front = check(s, rev);
-        string back = check(rev, s);
-
-        return max(front, back);
+        int n = s.size();
+        string res = "";
+        string temp = "";
+        for(int i=1; i < n; i++){
+            string odd = odd_pali(s, i);
+            string even = even_pali(s, i);
+            if(odd.size()>even.size())  temp = odd;
+            else temp = even;
+            // temp = even;
+            if(temp.size() > res.size())  res = temp;
+        }        
+        if(res =="")    return string(1,s[0]);
+        return res;
     }
 };
