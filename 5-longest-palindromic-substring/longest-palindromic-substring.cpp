@@ -12,7 +12,7 @@ public:
         int i = 0;
         int n = s.size();
         string res = "";
-        while(i<n && n-i >= res.size()/2){
+        while(i<n && n-i > res.size()/2){
             int j = 0;
             while(j < n-i){
                 if(s[i] == rev[j]){
