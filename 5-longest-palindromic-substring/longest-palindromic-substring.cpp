@@ -52,7 +52,7 @@ public:
                 temp = s.substr(i-j, 2*j+1);
                 j++;
             }
-            string odd = temp;
+            if(temp.size() > res.size())    res = temp;
             temp = "";
 
             // string even = even_pali(s, i);
@@ -61,10 +61,7 @@ public:
                 temp = s.substr(i-1-j,2*(j+1));
                 j++;
             }
-            cout<<odd<<'\t'<<temp<<endl;
-            if(temp.size() > odd.size())    odd = temp;
-
-            if(odd.size() > res.size())  res = odd;
+            if(temp.size() > res.size())    res = temp;
             temp = "";
         }        
         if(res =="")    return string(1,s[0]);
