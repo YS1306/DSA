@@ -44,12 +44,28 @@ public:
         string res = "";
         string temp = "";
         for(int i=1; i < n; i++){
-            string odd = odd_pali(s, i);
-            string even = even_pali(s, i);
-            if(odd.size()>even.size())  temp = odd;
-            else temp = even;
-            // temp = even;
-            if(temp.size() > res.size())  res = temp;
+            // string odd = odd_pali(s, i);
+
+            temp = temp+string(1,s[i]);
+            int j = 1;
+            while(i-j >= 0 && i+j < n && s[i-j] == s[i+j]){
+                temp = s.substr(i-j, 2*j+1);
+                j++;
+            }
+            string odd = temp;
+            temp = "";
+
+            // string even = even_pali(s, i);
+            j = 0;
+            while(i-1-j >= 0 && i+j < n && s[i-1-j] == s[i+j]){
+                temp = s.substr(i-1-j,2*(j+1));
+                j++;
+            }
+            cout<<odd<<'\t'<<temp<<endl;
+            if(temp.size() > odd.size())    odd = temp;
+
+            if(odd.size() > res.size())  res = odd;
+            temp = "";
         }        
         if(res =="")    return string(1,s[0]);
         return res;
