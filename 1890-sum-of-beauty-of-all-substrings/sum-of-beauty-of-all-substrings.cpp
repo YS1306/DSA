@@ -4,7 +4,7 @@ public:
     int beautySum(string s) {
 
         for (int i = 0; i < s.length(); i++) {
-            map<char, int> mp;
+            unordered_map<char, int> mp;
             for (int j = i; j < s.length(); j++) {
                 // counting the frequency of each character
                 mp[s[j]]++;
