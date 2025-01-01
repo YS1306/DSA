@@ -5,10 +5,10 @@ public:
 
         for (int i = 0; i < s.length()-1; i++) {
             unordered_map<char, int> mp;
-            for (int j = i; j < s.length(); j++) {
+            mp[s[i]]++;
+            for (int j = i+1; j < s.length(); j++) {
                 // counting the frequency of each character
                 mp[s[j]]++;
-
                 int leastFrequent = INT_MAX;
                 int mostFrequent = INT_MIN;
                 // Finding most frequent and least frequent chracter
