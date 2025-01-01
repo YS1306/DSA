@@ -12,9 +12,11 @@ public:
         node->val = node->next->val;
         if(!node->next->next){
             node->next = NULL;
+            return;
         }
         else{
-            node->next = node->next->next;   
+            node->next = node->next->next;
+            return;   
         }
     }
 };
