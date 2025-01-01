@@ -2,9 +2,9 @@ class Solution {
 public:
     int ans = 0;
     int beautySum(string s) {
-
+        unordered_map<char, int> mp;
         for (int i = 0; i < s.length()-1; i++) {
-            unordered_map<char, int> mp;
+            mp.clear();
             mp[s[i]]++;
             for (int j = i+1; j < s.length(); j++) {
                 // counting the frequency of each character
