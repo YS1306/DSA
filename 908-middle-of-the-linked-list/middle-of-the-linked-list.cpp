@@ -17,7 +17,6 @@ public:
             first = first->next;
             second = second->next;
             if(second->next)  second = second->next;
-            cout<<second->val;
         }
         return first;
     }
