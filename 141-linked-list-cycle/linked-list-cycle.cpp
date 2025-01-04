@@ -12,7 +12,7 @@ public:
         if(!head || !head->next)    return false;
         ListNode* ptr = head;
         while(ptr->next){
-            if(int(ptr-ptr->next) >= 0)    return true;
+            if(ptr-ptr->next >= 0)    return true;
             ptr = ptr->next; 
         }
         return false;
