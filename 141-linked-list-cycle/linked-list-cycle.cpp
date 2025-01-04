@@ -10,6 +10,7 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         if(!head || !head->next)    return false;
+        cout<<head-head->next;
         while(head->next){
             if(head->next-head <= 0)    return true;
             head = head->next; 
