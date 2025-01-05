@@ -10,9 +10,10 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         if(!head || !head->next)    return false;
-        while(head->next){
-            if(head >= head->next )    return true;
-            head = head->next; 
+        ListNode* ptr = head->next;
+        while(ptr->next){
+            if(ptr >= ptr->next )    return true;
+            ptr = ptr->next; 
         }
         return false;
     }
