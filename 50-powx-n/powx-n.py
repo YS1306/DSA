@@ -7,6 +7,6 @@ class Solution:
         if n == 0:
             return 1
         if(n%2) == 1:
-            return x*self.myPow(x,int(n/2))**2
+            return x*self.myPow(x*x,int(n/2))
         else:
-            return self.myPow(x, int(n/2))**2
+            return self.myPow(x*x, int(n/2))
