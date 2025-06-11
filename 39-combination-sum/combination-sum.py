@@ -1,20 +1,20 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
-        def check(nums, curr_sum, target):
+        def check(nums,curr_list, curr_sum, target):
 
-            if sum(curr_sum) > target:
+            if curr_sum > target:
                 return 
-            if sum(curr_sum) == target:
-                res.append(curr_sum)
+            if curr_sum == target:
+                res.append(curr_list)
                 return
             if len(nums) == 0:
                 return 
-            if sum(curr_sum) <= target-nums[0]:
-                take = check(nums, curr_sum+[nums[0]], target)
-            no_take = check(nums[1:], curr_sum, target)
+            if curr_sum <= target-nums[0]:
+                take = check(nums, curr_list+[nums[0]], curr_sum+nums[0], target)
+            no_take = check(nums[1:],curr_list, curr_sum, target)
 
             return 
 
-        check(candidates, [], target)
+        check(candidates, [],0, target)
         return res
