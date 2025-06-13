@@ -24,10 +24,10 @@ class Solution:
             #     return
             while(len(nums) > 1 and nums[0] == nums[1]):
                 nums = nums[1:]
-            if len(nums) > 1 and nums[0] == nums[1]:
-                    check(nums[2:], curr_list, curr_sum, target)
-            else:
-                check(nums[1:], curr_list, curr_sum, target)
+            # if len(nums) > 1 and nums[0] == nums[1]:
+            #         check(nums[2:], curr_list, curr_sum, target)
+            # else:
+            check(nums[1:], curr_list, curr_sum, target)
 
 
         if min(candidates) != max(candidates):
