@@ -2,8 +2,6 @@ class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
         def check(nums, curr_list, curr_sum, target):
-            print(len(nums), len(curr_list), curr_sum)
-            print()
             if curr_sum > target:
                 return
             if curr_sum == target:
