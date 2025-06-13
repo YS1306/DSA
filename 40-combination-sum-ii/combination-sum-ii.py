@@ -10,22 +10,13 @@ class Solution:
                 return
             if len(nums) == 0:
                 return 
-            
-            if curr_sum <= target-nums[0]:
-                # if len(nums) > 1 and nums[0] == nums[1]:
-                #     check(nums[2:], curr_list+[nums[0]], curr_sum+nums[0], target)
-                # else:
-                    check(nums[1:], curr_list+[nums[0]], curr_sum+nums[0], target)
+            if nums[0] <= target-curr_sum:
+                check(nums[1:], curr_list+[nums[0]], curr_sum+nums[0], target)
                     
-            
-            # if curr_sum <= target and nums[0] == nums[-1]:
-            #     return
-            while(len(nums) > 1 and nums[0] == nums[1]):
-                nums = nums[1:]
-            # if len(nums) > 1 and nums[0] == nums[1]:
-            #         check(nums[2:], curr_list, curr_sum, target)
-            # else:
-            check(nums[1:], curr_list, curr_sum, target)
+                while(len(nums) > 1 and nums[0] == nums[1]):
+                    nums = nums[1:]
+
+                check(nums[1:], curr_list, curr_sum, target)
 
 
         if min(candidates) != max(candidates):
