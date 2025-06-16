@@ -16,6 +16,5 @@ class Solution:
             check(m+1, curr_list, target)
 
 
-        nums = [i for i in range(1,min(10,n))]
         check(1, [], n)
         return res
