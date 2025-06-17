@@ -2,14 +2,6 @@ class Solution:
     def partition(self, s: str) -> List[List[str]]:
         res = []
 
-        def isPali(st):
-                n = len(st)
-                for i in range(n//2):
-                    if st[i] != st[n-i-1]:
-                        return False
-
-                return True
-
         def check(nums, curr_list):
             flag = True
             if len(curr_list) > 0: 
