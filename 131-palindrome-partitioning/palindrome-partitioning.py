@@ -19,18 +19,16 @@ class Solution:
 
             return True
 
-        def check(nums, curr_list, idx):
-            # print(curr_list, nums, idx)
+        def check(nums, curr_list):
             if len(curr_list) > 0 and not isPali(curr_list[-1]):
-                # print("YES")
                 return
             if len(nums) == 0:
                 if isPali(curr_list[-1]):
                     res.append(curr_list)
                 return
-            # print("2nd  ",curr_list+[nums[1:1+1]])
-            for i in range(1, len(nums)+1):
-                check(nums[idx+i:], curr_list+[nums[idx:idx+i]], 0)
 
-        check(s, [], 0)
+            for i in range(1, len(nums)+1):
+                check(nums[i:], curr_list+[nums[:i]])
+
+        check(s, [])
         return res
