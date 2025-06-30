@@ -33,7 +33,7 @@ class Solution:
                             filled.remove(i)
                             r_dig.remove(idx-i)
                             l_dig.remove(idx+i)
-                            return 
+                            continue 
                         check(board, prev, idx+1, valid2)
                         board[idx][i] = "."
                         filled.remove(i)
