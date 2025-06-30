@@ -6,6 +6,12 @@ class Solution:
         r_dig = []   # i-j
         l_dig = []   # i+j
         def check(board, prev, idx, valid):
+            if idx == n:
+                brd = []
+                for k in range(n):
+                    brd.append(''.join(board[k]))
+                res.append(brd.copy())
+                return 
             if len(valid) != 0:
                 for i in valid:
                     if i not in filled and (idx+i) not in l_dig and (idx-i) not in r_dig:
@@ -48,12 +54,6 @@ class Solution:
                 valid2.remove(j-1)
             if j < n-1:
                 valid2.remove(j+1)
-            if n == 1:
-                brd = []
-                for k in range(n):
-                    brd.append(''.join(board[k]))
-                res.append(brd.copy())
-                break 
             check(board, 0, 1, valid2)
             board[0][j] = "."
             filled.remove(j)
