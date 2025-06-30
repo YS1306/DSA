@@ -19,7 +19,7 @@ class Solution:
                         filled.append(i)
                         r_dig.append(idx-i)
                         l_dig.append(idx+i)
-                        valid2 = [i for i in range(n)]
+                        valid2 = all.copy()
                         if i > 0 and i-1 in valid2:
                             valid2.remove(i-1)
                         if i < n-1 and i+1 in valid2:
@@ -39,7 +39,7 @@ class Solution:
             filled.append(j)
             r_dig.append(-j)
             l_dig.append(j)
-            valid2 = [i for i in range(n)]
+            valid2 = all.copy()
             if j > 0:
                 valid2.remove(j-1)
             if j < n-1:
