@@ -19,12 +19,11 @@ class Solution:
                         filled.append(i)
                         r_dig.append(idx-i)
                         l_dig.append(idx+i)
-                        valid2 = all.copy()
+                        valid2 = [i for i in range(n)]
                         if i > 0 and i-1 in valid2:
                             valid2.remove(i-1)
                         if i < n-1 and i+1 in valid2:
                             valid2.remove(i+1)
-                        # print(board)
                         check(board, prev, idx+1, valid2)
                         board[idx][i] = "."
                         filled.remove(i)
@@ -34,13 +33,13 @@ class Solution:
         
         row = ["."]*n
         board = [row.copy() for j in range(n)]
-        # return res
+        
         for j in range(n):
             board[0][j] = "Q"  
             filled.append(j)
             r_dig.append(-j)
             l_dig.append(j)
-            valid2 = all.copy()
+            valid2 = [i for i in range(n)]
             if j > 0:
                 valid2.remove(j-1)
             if j < n-1:
