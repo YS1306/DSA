@@ -6,7 +6,7 @@ class Solution:
         r_dig = []   # i-j
         l_dig = []   # i+j
         def check(board, prev, idx, valid):
-            if idx == len(board):
+            if idx == n:
                 brd = []
                 for k in range(n):
                     brd.append(''.join(board[k]))
@@ -24,6 +24,16 @@ class Solution:
                             valid2.remove(i-1)
                         if i < n-1 and i+1 in valid2:
                             valid2.remove(i+1)
+                        if idx == n-1:
+                            brd = []
+                            for k in range(n):
+                                brd.append(''.join(board[k]))
+                            res.append(brd.copy())
+                            board[idx][i] = "."
+                            filled.remove(i)
+                            r_dig.remove(idx-i)
+                            l_dig.remove(idx+i)
+                            return 
                         check(board, prev, idx+1, valid2)
                         board[idx][i] = "."
                         filled.remove(i)
