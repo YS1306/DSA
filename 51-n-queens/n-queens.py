@@ -54,6 +54,8 @@ class Solution:
                 valid2.remove(j-1)
             if j < n-1:
                 valid2.remove(j+1)
+            if n == 1:
+                return board  
             check(board, 0, 1, valid2)
             board[0][j] = "."
             filled.remove(j)
