@@ -28,6 +28,8 @@ class Solution:
                                       if c not in rows[i] and c not in cols[j] and c not in boxes[b]]
                         if not candidates:
                             return False
+
+                        # To choose the cell with the minimum possible candidates
                         if len(candidates) < min_count:
                             min_count = len(candidates)
                             target = (i, j, candidates)
