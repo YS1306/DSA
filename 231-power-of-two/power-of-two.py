@@ -1,17 +1,18 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         flag = False
-        for i in range(n):
-            po = pow(2,i)
-            if n%po != 0:
+        dig = 1
+        while True:
+             
+            if n%dig != 0:
                 flag = False
                 break
-            if po == n:
+            if dig == n:
                 flag = True
                 break
-            if po > n:
+            if dig > n:
                 flag = False
                 break
-            print(i)
-        
+            dig <<= 1
+            # print(dig)
         return flag
