@@ -2,7 +2,7 @@ class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
         flag = False
         for i in range(n):
-            po = 2**i
+            po = pow(2,i)
             if n%po != 0:
                 flag = False
                 break
@@ -12,5 +12,6 @@ class Solution:
             if po > n:
                 flag = False
                 break
+            print(i)
         
         return flag
