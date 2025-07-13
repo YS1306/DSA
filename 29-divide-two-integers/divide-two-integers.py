@@ -28,8 +28,7 @@ class Solution:
             dividend = dividend-(divisor<<i)
             cnt += temp
             if dividend < divisor:
-                break
-        print(maxi)    
+                break  
         if sign == -1:
             return (max((-maxi-1), cnt*sign))
         else:
