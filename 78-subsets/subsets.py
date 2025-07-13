@@ -1,16 +1,15 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        if len(nums) == 0:
-            return [[]]
-        if len(nums) ==1:
-            return [[],[nums[0]]]
+        res = []
+        n = len(nums)
+        def check(i,curr):
+            if curr not in res:
+                res.append(curr)
+            if i >=  n:
+                return
+            check(i+1, curr)
+            check(i+1, curr+[nums[i]])
+            return
         
-        res = self.subsets(nums[1:])
-        curr = []
-        # print(res)
-        for i in range(len(res)):
-            new = res[i]+[nums[0]]
-            if new not in res:
-                curr.append(new)
-        
-        return res+curr
+        check(0, [])
+        return res
