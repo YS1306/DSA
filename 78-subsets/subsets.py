@@ -2,14 +2,15 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
         n = len(nums)
-        def check(nums,i,curr):
-            if curr not in res:
-                res.append(curr)
-            if i >=  n:
+        def check(i,curr):
+            
+            if i >=  n: 
+                if curr not in res:
+                    res.append(curr)
                 return
-            check(nums[1:], i+1, curr)
-            check(nums[1:], i+1, curr+[nums[0]])
+            check(i+1, curr)
+            check(i+1, curr+[nums[i]])
             return
         
-        check(nums, 0, [])
+        check(0, [])
         return res
