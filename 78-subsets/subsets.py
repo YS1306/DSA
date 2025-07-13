@@ -7,8 +7,8 @@ class Solution:
                 res.append(curr)
             if i >=  n:
                 return
-            check(nums, i+1, curr)
-            check(nums, i+1, curr+[nums[i]])
+            check(nums[1:], i+1, curr)
+            check(nums[1:], i+1, curr+[nums[0]])
             return
         
         check(nums, 0, [])
