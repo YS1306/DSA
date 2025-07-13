@@ -5,8 +5,8 @@ class Solution:
         def check(i,curr):
             
             if i >=  n: 
-                if curr not in res:
-                    res.append(curr)
+                # if curr not in res:
+                res.append(curr)
                 return
             check(i+1, curr)
             check(i+1, curr+[nums[i]])
