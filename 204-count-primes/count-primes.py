@@ -1,6 +1,8 @@
 
 class Solution:
     def countPrimes(self, n: int) -> int:
+        if n <= 2:
+            return 0
         primes = [1 for i in range(n)]
 
         i = 2
@@ -9,7 +11,7 @@ class Solution:
                 j = i*i
                 while(j < n):
                     primes[j] = 0
-                    j = j+i
+                    j += i
             if i == 2:
                 i += 1
             else:
