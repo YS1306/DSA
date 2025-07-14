@@ -13,8 +13,8 @@ class Solution:
                     j = j+i
             i += 1
 
-        for i in primes[2:]:
-            if i == 1:
-                res += 1
-        return res
+        # for i in primes[2:]:
+        #     if i == 1:
+        #         res += 1
+        return sum(primes[2:])
         
