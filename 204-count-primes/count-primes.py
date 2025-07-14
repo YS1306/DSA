@@ -13,5 +13,5 @@ class Solution:
                     j = j+i
             i += 1
 
-        return sum(primes[2:])
+        return primes[2:].count(1)
         
