@@ -10,5 +10,4 @@ class Solution:
                 while(j <= n):
                     primes[j] = 0
                     j = j+i
-        # print(res)
         return res
