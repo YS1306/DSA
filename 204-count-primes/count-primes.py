@@ -7,12 +7,12 @@ class Solution:
         primes[0] = primes[1] = False
         i = 2
         while i*i < n:
-            # if primes[i]:
+            if primes[i]:
             #     j = i*i
             #     while(j < n):
             #         primes[j] = False
             #         j += i
-            primes[i*i:n:i] = [False] *((n-1-i*i)// i+1)
+                primes[i*i:n:i] = [False] *((n-1-i*i)// i+1)
             if i == 2:
                 i += 1
             else:
