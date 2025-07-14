@@ -1,13 +1,20 @@
 
 class Solution:
     def countPrimes(self, n: int) -> int:
-        primes = [1 for i in range(n+1)]
+        primes = [1 for i in range(n)]
         res = 0
-        for i in range(2,n):
+        i = 2
+        while i*i <= n:
             if primes[i] == 1:
-                res += 1
+                # res += 1
                 j = i*i
-                while(j <= n):
+                while(j < n):
                     primes[j] = 0
                     j = j+i
+            i += 1
+
+        for i in primes[2:]:
+            if i == 1:
+                res += 1
         return res
+        
