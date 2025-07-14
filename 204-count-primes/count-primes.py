@@ -3,19 +3,19 @@ class Solution:
     def countPrimes(self, n: int) -> int:
         if n <= 2:
             return 0
-        primes = [1 for i in range(n)]
-
+        primes = [True for i in range(n)]
+        primes[0] = primes[1] = False
         i = 2
         while i*i < n:
-            if primes[i] == 1:
+            if primes[i]:
                 j = i*i
                 while(j < n):
-                    primes[j] = 0
+                    primes[j] = False
                     j += i
             if i == 2:
                 i += 1
             else:
                 i += 2
 
-        return sum(primes[2:])
+        return sum(primes)
         
