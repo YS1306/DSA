@@ -4,11 +4,15 @@ class Solution:
         st = []
         # st2 = []
         res = [-1]*n
-        max_ele = max(nums)
-        cnt = 0
-        while(nums[-1] != max_ele):
-            nums = [nums[-1]] + nums[:-1]
-            cnt += 1
+        max_i = 0
+
+        for i in range(n):
+            if nums[i] >= nums[max_i]:
+                max_i = i
+        nums = nums[max_i+1:] + nums[:max_i+1]
+        # while(nums[-1] != max_ele):
+        #     nums = [nums[-1]] + nums[:-1]
+        #     cnt += 1
 
         for i in range(n-1,-1,-1):
             while st and st[-1] <= nums[i]:
@@ -16,8 +20,6 @@ class Solution:
             if st:
                 res[i] = st[-1]
             st.append(nums[i])  
-        print(cnt)
-        print(res)
-        # for j in range(cnt):
-        res = res[cnt:]+res[:cnt]
+
+        res = res[n-max_i-1:]+res[:n-max_i-1]
         return res
