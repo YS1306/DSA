@@ -16,7 +16,8 @@ class Solution:
             if st:
                 res[i] = st[-1]
             st.append(nums[i])  
-        
-        for j in range(cnt):
-            res = res[1:]+[res[0]]
+        print(cnt)
+        print(res)
+        # for j in range(cnt):
+        res = res[cnt:]+res[:cnt]
         return res
