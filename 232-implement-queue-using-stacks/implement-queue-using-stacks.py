@@ -19,33 +19,33 @@ class MyQueue:
         print("Before",self.s1, self.front, self.rear)
         while(self.rear - self.front > 0):
             print(self.rear)
-            self.s2.append(self.s1.pop(self.rear))
+            self.s2.append(self.s1.pop())
             self.rear -= 1
-        temp = self.s1[self.rear]
+        temp = self.s1.pop()
         self.front += 1
         while(len(self.s2) > 0):
-            self.s1.append(self.s2.pop(-1))
+            self.s1.append(self.s2.pop())
             self.rear += 1
         print("After",self.s1, self.front, self.rear)
         
         return temp
 
     def peek(self) -> int:
-        while(self.rear - self.front > 0):
-            self.s2.append(self.s1.pop(self.rear))
+        while(len(self.s1) > 1):
+            self.s2.append(self.s1.pop())
             self.rear -= 1
 
-        temp = self.s1[self.rear]
+        temp =  self.s1[-1]
 
         while len(self.s2) > 0:
-            self.s1.append(self.s2.pop(-1))
+            self.s1.append(self.s2.pop())
             self.rear += 1
         return temp
         
 
     def empty(self) -> bool:
         print(self.front, self.rear)
-        return self.front == self.rear+1 or (self.front, self.rear) == (-1, -1)
+        return len(self.s1) == 0
         
 
 
