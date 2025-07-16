@@ -4,7 +4,7 @@ class Solution:
         n = len(nums2)
         for i in nums1:
             flag = False
-            for j in range(len(nums2)):
+            for j in range(nums2.index(i), len(nums2)):
                 if not flag and i == nums2[j]:
                     flag = True
                 elif flag and nums2[j] > i:
