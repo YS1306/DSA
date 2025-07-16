@@ -1,7 +1,7 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         k = len(nums1)
-        res = [-1 for i in range(k)]
+        res = [-1]*k
         
         n = len(nums2)
         for i in range(k):
