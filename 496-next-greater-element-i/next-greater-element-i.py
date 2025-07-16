@@ -5,9 +5,9 @@ class Solution:
         stack = []
         ele_to_nge = dict()
         for i in range(k-1, -1, -1):
-            while(len(stack) and stack[-1] <= nums2[i]):
+            while(stack and stack[-1] <= nums2[i]):
                 stack.pop()
-            if len(stack):
+            if stack:
                 res[i] = stack[-1]
             stack.append(nums2[i])
         
