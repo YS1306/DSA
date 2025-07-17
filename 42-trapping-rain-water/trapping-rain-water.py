@@ -11,10 +11,8 @@ class Solution:
             elif stack and stack[-1] > val:
                 stack.append(val)
             else:
-                i = 1
                 last_box = 0
                 cnt = 0
-                stack2 = []
                 while(stack and stack[-1] < val):
                     last = stack.pop()
                     last_box += last
@@ -25,9 +23,9 @@ class Solution:
                 else:
                     last_box -= last
                     cnt -= 1
-                
-                box_l = (cnt+2)*min(val, last)
-                fill = box_l - last_box - (2*min(val,last))
+                mini = min(val, last)
+                box_l = (cnt+2)*mini
+                fill = box_l - last_box - (mini<<1)
                 res += fill
                 
                 if stack and (stack[:-1] or stack[-1] > val):
