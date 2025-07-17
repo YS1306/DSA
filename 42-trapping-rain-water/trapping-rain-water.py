@@ -29,9 +29,10 @@ class Solution:
                 res += fill
                 
                 if stack and (stack[:-1] or stack[-1] > val):
-                    stack = stack+[val]*(cnt+1)
-                else:
-                    stack.append(val)              
+                    for i in range(cnt):
+                        stack.append(val) 
+                
+                stack.append(val)              
                 
             
         return res
