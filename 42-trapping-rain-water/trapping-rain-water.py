@@ -6,13 +6,13 @@ class Solution:
 
         while(left < right):
             if nums[left] <= nums[right]:
-                if l_max > nums[left]:
+                if l_max >= nums[left]:
                     res += (l_max-nums[left])
                 else:
                     l_max =  nums[left]
                 left += 1
             else:
-                if r_max > nums[right]:
+                if r_max >= nums[right]:
                     res += (r_max-nums[right])
                 else:
                     r_max =  nums[right]
