@@ -1,38 +1,22 @@
 class Solution:
-    def trap(self, height: List[int]) -> int:
-        stack = []
-        last_box = 0; cnt = 0 ; res = 0
-        for val in height:
-            if not stack:
-                if val:
-                    stack.append(val)
+    def trap(self, nums: List[int]) -> int:
+        res = 0
+        left = 0; right = len(nums)-1
+        l_max = nums[0]; r_max = nums[-1]
+
+        while(left < right):
+            if nums[left] <= nums[right]:
+                if l_max > nums[left]:
+                    res += (l_max-nums[left])
                 else:
-                    continue
-            elif stack and stack[-1] > val:
-                stack.append(val)
+                    l_max =  nums[left]
+                left += 1
             else:
-                last_box = 0
-                cnt = 0
-                while(stack and stack[-1] < val):
-                    last = stack.pop()
-                    last_box += last
-                    cnt += 1
-                
-                if stack:
-                    last = stack[-1]
+                if r_max > nums[right]:
+                    res += (r_max-nums[right])
                 else:
-                    last_box -= last
-                    cnt -= 1
-                mini = min(val, last)
-                box_l = (cnt+2)*mini
-                fill = box_l - last_box - (mini<<1)
-                res += fill
-                
-                if stack and (stack[:-1] or stack[-1] > val):
-                    for i in range(cnt):
-                        stack.append(val) 
-                
-                stack.append(val)              
+                    r_max =  nums[right]
+                right -= 1
                 
             
         return res
