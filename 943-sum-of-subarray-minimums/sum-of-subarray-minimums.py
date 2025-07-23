@@ -12,7 +12,6 @@ class Solution:
                 if stack:
                     nse_arr[i] = stack[-1]
                 stack.append(i)
-            print(nse_arr)
             return nse_arr
 
         def pse(arr):
@@ -25,7 +24,6 @@ class Solution:
                 if stack:
                     pse_arr[i] = stack[-1]
                 stack.append(i)
-            print(pse_arr)
             return pse_arr
 
         nse_arr = nse(arr)
@@ -33,6 +31,5 @@ class Solution:
 
         res = 0
         for i in range(n):
-            res += (nse_arr[i]-i)*(i-pse_arr[i])*arr[i]
-        print(res)            
+            res += (nse_arr[i]-i)*(i-pse_arr[i])*arr[i]        
         return res%mod
