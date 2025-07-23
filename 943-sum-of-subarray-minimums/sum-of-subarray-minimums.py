@@ -4,7 +4,7 @@ class Solution:
         mod = 1000000007
         def nse(arr):
             stack = []
-            nse_arr = [n for i in range(n)]
+            nse_arr = [n]*n
             for i in range(n-1, -1, -1):
                 while(stack and arr[stack[-1]] >= arr[i]):
                     stack.pop()
@@ -16,7 +16,7 @@ class Solution:
 
         def pse(arr):
             stack = []
-            pse_arr = [-1 for i in range(n)]
+            pse_arr = [-1]*n
             for i in range(n):
                 while(stack and arr[stack[-1]] > arr[i]):
                     stack.pop()
