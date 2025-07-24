@@ -46,7 +46,6 @@ class Solution:
             return pge_arr
 
         mins = 0
-        maxs = 0
 
         nse_arr = nse(nums)
         pse_arr = pse(nums)
