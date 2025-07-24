@@ -4,10 +4,11 @@ class Solution:
 
         for i in range(len(arr)):
             curr = arr[i]
-            if not stack or (stack[-1] > 0 and curr > 0) or (stack[-1] < 0 and curr < 0) or (curr > 0 and stack[-1] < 0):
-                stack.append(curr)
+            flag = True
+            # if not stack or (stack[-1] > 0 and curr > 0) or (stack[-1] < 0 and curr < 0) or (curr > 0 and stack[-1] < 0):
+            #     stack.append(curr)
             
-            elif curr < 0 and stack[-1] > 0:
+            if stack and curr < 0 and stack[-1] > 0:
                 flag = False
                 while(stack and stack[-1] > 0 and stack[-1] < abs(curr)):
                     flag = True
@@ -18,7 +19,8 @@ class Solution:
                     continue
                 elif stack and stack[-1] > 0 and stack[-1] > abs(curr):
                     flag = False
-                elif flag:
-                    stack.append(curr)
+
+            if flag:
+                stack.append(curr)
         return stack
                  
