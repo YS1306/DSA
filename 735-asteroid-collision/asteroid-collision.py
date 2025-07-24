@@ -33,7 +33,5 @@ class Solution:
                     flag = False
                 elif flag:
                     stack.append(curr)
-            
-        print(stack)
         return stack
                  
