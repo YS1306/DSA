@@ -6,7 +6,7 @@ class Solution:
             curr = arr[i]
             flag = True
             
-            if stack and curr < 0 and stack[-1] > 0:
+            if stack and curr < 0 < stack[-1]:
                 flag = False
                 while(stack and stack[-1] > 0 and stack[-1] < abs(curr)):
                     flag = True
