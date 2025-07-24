@@ -10,7 +10,6 @@ class Solution:
                 if stack:
                     nse_arr[i] = stack[-1]
                 stack.append(i)
-            print(nse_arr)
             return nse_arr                
 
         def pse(nums):
@@ -22,7 +21,6 @@ class Solution:
                 if stack:
                     pse_arr[i] = stack[-1]
                 stack.append(i)
-            print(pse_arr)
             return pse_arr
 
         def nge(nums):
@@ -34,7 +32,6 @@ class Solution:
                 if stack:
                     nge_arr[i] = stack[-1]
                 stack.append(i)
-            print(nge_arr)
             return nge_arr                
 
         def pge(nums):
@@ -46,7 +43,6 @@ class Solution:
                 if stack:
                     pge_arr[i] = stack[-1]
                 stack.append(i)
-            print(pge_arr)
             return pge_arr
 
         mins = 0
