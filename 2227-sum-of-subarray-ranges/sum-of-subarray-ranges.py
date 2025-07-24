@@ -54,7 +54,7 @@ class Solution:
         pge_arr = pge(nums)
 
         for i in range(n):
-            mins += (nse_arr[i]-i)*(i-pse_arr[i])*nums[i]
-            maxs += (nge_arr[i]-i)*(i-pge_arr[i])*nums[i]
+            mins += ((nge_arr[i]-i)*(i-pge_arr[i])-(nse_arr[i]-i)*(i-pse_arr[i]))*nums[i]
+            # maxs += *nums[i]
         
-        return maxs-mins
+        return mins
