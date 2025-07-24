@@ -5,8 +5,6 @@ class Solution:
         for i in range(len(arr)):
             curr = arr[i]
             flag = True
-            # if not stack or (stack[-1] > 0 and curr > 0) or (stack[-1] < 0 and curr < 0) or (curr > 0 and stack[-1] < 0):
-            #     stack.append(curr)
             
             if stack and curr < 0 and stack[-1] > 0:
                 flag = False
