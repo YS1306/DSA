@@ -45,7 +45,7 @@ class Solution:
                 stack.append(i)
             return pge_arr
 
-        mins = 0
+        range_sum = 0
 
         nse_arr = nse(nums)
         pse_arr = pse(nums)
@@ -53,7 +53,6 @@ class Solution:
         pge_arr = pge(nums)
 
         for i in range(n):
-            mins += ((nge_arr[i]-i)*(i-pge_arr[i])-(nse_arr[i]-i)*(i-pse_arr[i]))*nums[i]
-            # maxs += *nums[i]
+            range_sum += ((nge_arr[i]-i)*(i-pge_arr[i])-(nse_arr[i]-i)*(i-pse_arr[i]))*nums[i]
         
-        return mins
+        return range_sum
