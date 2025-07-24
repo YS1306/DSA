@@ -53,7 +53,7 @@ class Solution:
         nge_arr = nge(nums)
         pge_arr = pge(nums)
 
-        for i in range(len(nums)):
+        for i in range(n):
             mins += (nse_arr[i]-i)*(i-pse_arr[i])*nums[i]
             maxs += (nge_arr[i]-i)*(i-pge_arr[i])*nums[i]
         
