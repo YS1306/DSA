@@ -1,27 +1,7 @@
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
-        stack = []
+        # stack = []
         n = len(heights)
-        # largest = 0
-        # for i in range(n):
-        #     curr = heights[i]
-        #     if not stack or stack[-1][1] <= curr:
-        #         stack.append((i,curr))
-        #     elif stack and stack[-1][1] > curr:
-        #         ar = 0
-        #         cnt = 0
-        #         while(stack and stack[-1][1] > curr):
-        #             ar += min(ar, stack[-1])
-        #             stack.pop()
-        #             cnt += 1
-        #         largest = max(ar, largest)
-                
-        #         if  stack:
-        #             last = stack[-1]
-        #             for j in range(cnt):
-        #                 stack.push(min(curr, last))
-
-        # print(max())
 
         def nse(arr):
             stack = []
