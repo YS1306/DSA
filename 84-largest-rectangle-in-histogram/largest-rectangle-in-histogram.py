@@ -8,7 +8,9 @@ class Solution:
         for i in range(n):
             while(stack and arr[stack[-1]] >= arr[i]):
                 temp = stack.pop()
-                res = max(res, (i-pse_arr[temp]-1)*arr[temp])
+                val = (i-pse_arr[temp]-1)*arr[temp]
+                if res < val:
+                    res = val
 
             if stack:
                 pse_arr[i] = stack[-1]
@@ -16,6 +18,8 @@ class Solution:
         
         while(stack):
             temp = stack.pop()
-            res = max(res, (n-pse_arr[temp]-1)*arr[temp])
+            val = (n-pse_arr[temp]-1)*arr[temp]
+            if res < val:
+                res = max(res,val )
 
         return res
