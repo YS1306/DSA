@@ -1,5 +1,6 @@
 class Solution:
     def largestRectangleArea(self, arr: List[int]) -> int:
+        ## No need to calculate PSE and NSE separately, instead we loop through the array only once and while popping any element the curr element will be NSE for it. So we just compare the res with (curr_idx-pse_arr[popping_idx]-1)*popping_element
         n = len(arr)
         
         stack = []
@@ -20,6 +21,6 @@ class Solution:
             temp = stack.pop()
             val = (n-pse_arr[temp]-1)*arr[temp]
             if res < val:
-                res = max(res,val )
+                res = val
 
         return res
