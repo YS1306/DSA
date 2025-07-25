@@ -33,7 +33,7 @@ class Solution:
 
         res = 0
         for i in range(n):
-            temp = (nse_arr[i]-pse_arr[i]-1)*heights[i]
+            temp = heights[i]*(nse_arr[i]-pse_arr[i]-1)
             if temp > res:
                 res = temp
 
