@@ -33,6 +33,8 @@ class Solution:
 
         res = 0
         for i in range(n):
-            res = max(res, heights[i]*(nse_arr[i]-pse_arr[i]-1))
+            temp = heights[i]*(nse_arr[i]-pse_arr[i]-1)
+            if temp > res:
+                res = temp
 
         return res
