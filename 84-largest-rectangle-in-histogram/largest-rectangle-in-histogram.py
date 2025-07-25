@@ -1,6 +1,6 @@
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
-        # stack = []
+        stack = []
         n = len(heights)
 
         def nse(arr):
