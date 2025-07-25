@@ -3,38 +3,47 @@ class Solution:
         # stack = []
         n = len(heights)
 
-        def nse(arr):
-            stack = []
-            nse_arr = [n]*n
-            for i in range(n-1, -1, -1):
-                while(stack and arr[stack[-1]] >= arr[i]):
-                    stack.pop()
+        # def nse(arr):
+        #     stack = []
+        #     nse_arr = [n]*n
+        #     for i in range(n-1, -1, -1):
+        #         while(stack and arr[stack[-1]] >= arr[i]):
+        #             stack.pop()
                 
-                if stack:
-                    nse_arr[i] = stack[-1]
-                stack.append(i)
-            return nse_arr
+        #         if stack:
+        #             nse_arr[i] = stack[-1]
+        #         stack.append(i)
+        #     return nse_arr
 
         
         def pse(arr):
             stack = []
+            res = 0
             pse_arr = [-1]*n
             for i in range(n):
                 while(stack and arr[stack[-1]] >= arr[i]):
-                    stack.pop()
-                
+                    temp = stack.pop()
+                    res = max(res, (i-pse_arr[temp]-1)*arr[temp])
+
                 if stack:
                     pse_arr[i] = stack[-1]
                 stack.append(i)
-            return pse_arr
-        
-        nse_arr = nse(heights)
-        pse_arr = pse(heights)
+            
+            while(stack):
+                temp = stack.pop()
+                res = max(res, (n-pse_arr[temp]-1)*arr[temp])
 
-        res = 0
-        for i in range(n):
-            temp = heights[i]*(nse_arr[i]-pse_arr[i]-1)
-            if temp > res:
-                res = temp
-
+            return res
+        res = pse(heights)
         return res
+
+        # nse_arr = nse(heights)
+        # pse_arr = pse(heights)
+
+        # res = 0
+        # for i in range(n):
+        #     temp = heights[i]*(nse_arr[i]-pse_arr[i]-1)
+        #     if temp > res:
+        #         res = temp
+
+        # return res
