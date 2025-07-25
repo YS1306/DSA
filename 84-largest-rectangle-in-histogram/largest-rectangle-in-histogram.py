@@ -55,5 +55,4 @@ class Solution:
         for i in range(n):
             res = max(res, heights[i]*(nse_arr[i]-pse_arr[i]-1))
 
-        print(res)
         return res
