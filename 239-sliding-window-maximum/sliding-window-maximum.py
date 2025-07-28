@@ -6,7 +6,7 @@ class Solution:
         res = []
 
         for i in range(n):
-            while(q and q[0] == i-k):
+            if(q and q[0] == i-k):
                 q.popleft()
             
             while(q and nums[q[-1]] <= nums[i]):
