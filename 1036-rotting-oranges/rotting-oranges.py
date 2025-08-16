@@ -5,7 +5,6 @@ class Solution:
         m = len(grid)
         n = len(grid[0])
         q = deque()
-        visited = []
         total = 0
         rotten = 0
 
@@ -15,7 +14,6 @@ class Solution:
                     if grid[i][j] == 2:
                         q.append((i,j))
                         rotten += 1
-                    # if grid[i][j] == 1:
                     total += 1
         
         if total == rotten:
@@ -26,11 +24,6 @@ class Solution:
         flag = False
         while(q or next_q):
             curr = q.popleft()
-            # print(grid[curr[0]][curr[1]] == 1)
-            if curr in visited:
-                # print(curr)
-                continue
-            visited.append(q)
             r,c = curr
             
             if c < n-1 and grid[r][c+1] == 1:
@@ -55,7 +48,6 @@ class Solution:
                 rotten += 1
                 flag = True
             
-            # print(q, next_q)
             if not q and next_q:
                 q = next_q.copy()
                 next_q = deque()
@@ -63,10 +55,7 @@ class Solution:
                     count += 1
                 flag = False
                 
-            
-            # if flag:
-                # count += 1 
-        # print("count",count,"total" ,total,"rotten", rotten)
+
         if total == rotten:
             return count
         else:
