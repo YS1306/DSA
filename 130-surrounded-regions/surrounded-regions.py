@@ -42,7 +42,7 @@ class Solution:
             for j in range(n):
                 if board[i][j] == "O":
                     board[i][j] = "X"
-                elif board[i][j] == "F":
+                if board[i][j] == "F":
                     board[i][j] = "O"
 
 
