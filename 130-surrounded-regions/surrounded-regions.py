@@ -53,8 +53,7 @@ class Solution:
                             board[r][c] = "X"
                 
                 region = []
-        for k in range(m):
-            print(visited[k])
+
 
 
         
