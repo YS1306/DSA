@@ -5,7 +5,6 @@ class Solution:
         """
         m = len(board)
         n = len(board[0])
-        nearest = []
         visited = [[0 for j in range(n)] for i in range(m)]
         
         region = []
