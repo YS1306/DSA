@@ -4,15 +4,15 @@ class Solution:
         if endWord not in wordList:
             return 0
         if beginWord not in wordList:
-            start = 0
             wordList = [beginWord]+wordList
-        else:
-            start = wordList.index(beginWord)
-
         m = len(wordList)
+        
+        for i in range(m):
+            if wordList[i] == beginWord:
+                start = i
+                break
 
-        # w_to_i = {i:wordList[i] for i in range(len(wordList))} 
-        # i_to_w = {wordList[i]:i for i in range(len(wordList))}
+        
 
         adj_list = {i:[] for i in range(m)}
 
@@ -31,26 +31,25 @@ class Solution:
                     adj_list[i].append(j)
                     adj_list[j].append(i)
         
-        def bfs(ind):
-            visited = [ind]
-            q = deque()
-            next_q = deque()
-            q.append(ind)
-            count = 1
-            while(q or next_q):
-                curr = q.popleft()
-                for j in adj_list[curr]:
-                    if wordList[j] == endWord:
-                        return count+1
-                    if j not in visited:
-                        visited.append(j)
-                        next_q.append(j)
-                if not q:
-                    count += 1
-                    q = next_q.copy()
-                    next_q = deque()
+        
+        visited = [0 for i in range(m)]
+        q = deque()
+        next_q = deque()
+        q.append(start)
+        count = 1
+        while(q or next_q):
+            curr = q.popleft()
+            for j in adj_list[curr]:
+                if wordList[j] == endWord:
+                    return count+1
+                if not visited[j]:
+                    visited[j] = 1
+                    next_q.append(j)
+            if not q:
+                count += 1
+                q = next_q.copy()
+                next_q = deque()
 
-            return 0
+        return 0
 
-        return bfs(start)
 
