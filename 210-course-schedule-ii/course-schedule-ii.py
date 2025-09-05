@@ -4,10 +4,8 @@ class Solution:
         graph = {i:[] for i in range(numCourses)}
 
         in_d = [0]*numCourses
-        out_d = [0]*numCourses
         for pre in prerequisites:
             graph[pre[1]].append(pre[0])
-            out_d[pre[1]] += 1
             in_d[pre[0]] += 1
 
         q = deque()
@@ -18,10 +16,7 @@ class Solution:
             if in_d[i] == 0:
                 flag = True
                 q.append(i)
-                # res.append(i)
                 visited[i] = True
-            if out_d[i] == 0:
-                flag = True
         if not flag:
             return []
         
