@@ -26,8 +26,7 @@ class Solution:
             return []
         
         
-        def bfs(q):
-            next_q = deque()
+        def bfs():
             while(q):
                 curr = q.popleft()
                 res.append(curr)
@@ -37,7 +36,7 @@ class Solution:
                     if in_d[j] == 0:
                         q.append(j)
 
-        bfs(q)
+        bfs()
         if len(res) != numCourses:
             return []
         return res
