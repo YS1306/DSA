@@ -14,11 +14,11 @@ class Solution:
                 if flag:
                     curr = q1.popleft()
                     for j in graph[curr]:
-                        if j in q1:
+                        if visited[j] == 1:
                             return False
                         elif not visited[j]:
                             q2.append(j)
-                            visited[j] = 1
+                            visited[j] = 2
                     if not q1:
                         flag = False
                         q1 = deque()
@@ -27,7 +27,7 @@ class Solution:
                 if not flag:
                     curr = q2.popleft()
                     for j in graph[curr]:
-                        if j in q2:
+                        if visited[j] == 2:
                             return False
                         elif not visited[j]:
                             q1.append(j)
