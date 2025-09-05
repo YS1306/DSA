@@ -11,14 +11,14 @@ class Solution:
                 in_d[i] += 1
                 inv_graph[j].append(i)
 
-        for i in range(n):
+        for i in range(n-1,-1,-1):
             if in_d[i] == 0:
                 q.append(i)
                 res.append(i)
 
         while(q):
             curr = q.popleft()
-            for j in inv_graph[curr]:
+            for j in reversed(inv_graph[curr]):
                 in_d[j] -= 1
                 if in_d[j] == 0:
                     q.append(j)
