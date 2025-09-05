@@ -3,8 +3,8 @@ class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         m = len(graph)
         visited = [0 for i in range(m)]
-        globq1 = set()
-        globq2 = set()
+        q1 = deque()
+        q2 = deque()
 
         def bfs(i,q1,q2):
             q1.append(i)
@@ -40,8 +40,6 @@ class Solution:
             return True
 
         for i in range(m):
-            q1 = deque()
-            q2 = deque()
             if not visited[i]:
                 val = bfs(i,q1,q2)
             if not val:
