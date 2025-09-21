@@ -19,14 +19,11 @@ class Solution:
                     dist[node] = d+t
                     heappush(q, (dist[node], node))
             
-        res = max(dist[1:])
+        res = 0
 
-        # for k in dist[1:]:
-        #     if k == 100000:
-        #         return -1
-        #     if k > res:
-        #         res = k
-        if res == 100000:
-            return -1
-        else:
-            return res
+        for k in dist[1:]:
+            if k == 100000:
+                return -1
+            if k > res:
+                res = k
+        return res
