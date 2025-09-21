@@ -2,8 +2,6 @@ from heapq import heappush, heappop
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         graph = {i:[] for i in range(1,n+1)}    
-
-
         for u,v,w in times:
             graph[u].append((v,w))
         
@@ -21,11 +19,14 @@ class Solution:
                     dist[node] = d+t
                     heappush(q, (dist[node], node))
             
-        res = 0
+        res = max(dist[1:])
 
-        for k in dist[1:]:
-            if k == 100000:
-                return -1
-            if k > res:
-                res = k
-        return res
+        # for k in dist[1:]:
+        #     if k == 100000:
+        #         return -1
+        #     if k > res:
+        #         res = k
+        if res == 100000:
+            return -1
+        else:
+            return res
