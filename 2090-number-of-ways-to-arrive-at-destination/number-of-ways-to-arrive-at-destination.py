@@ -17,8 +17,8 @@ class Solution:
         
         while(q):
             d, s = heappop(q)
-            # if dist[s] < d:
-            #     continue
+            if dist[s] < d:
+                continue
             
             for node, t in graph[s]:
                 if dist[node] > (d+t):
