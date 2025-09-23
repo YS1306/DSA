@@ -23,5 +23,5 @@ class Solution:
 
                     dist[node] = d*prob
                     heappush(q, (dist[node], node))
-        print(dist)
+
         return abs(dist[end_node])
