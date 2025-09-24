@@ -8,26 +8,26 @@ class Solution:
             dist[u][v] = w
             dist[v][u] = w
 
-            if w < distanceThreshold:
-                reachable[u].add(v)
-                reachable[v].add(u)
-
         for k in range(n):
             for i in range(n):
                 for j in range(n):
                     dist[i][j] = min(dist[i][j], dist[i][k]+dist[k][j])
-                    if dist[i][j] <= distanceThreshold:
-                        reachable[i].add(j)
-                        reachable[j].add(i)
+                    # if dist[i][j] <= distanceThreshold:
+                    #     reachable[i].add(j)
+                    #     reachable[j].add(i)
 
         min_ctr = n+1
         city = n-1
 
         for i in range(n-1,-1,-1):
-            if len(reachable[i]) < min_ctr:
-                min_ctr = len(reachable[i])
-                city = i
+            ctr = 0
+            for j in range(n):
+                if dist[i][j] <= distanceThreshold:
+                    ctr += 1
 
+            if ctr < min_ctr:
+                min_ctr = ctr
+                city = i
         return city
 
 
