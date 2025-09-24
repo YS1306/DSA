@@ -22,7 +22,6 @@ class Solution:
 
         min_ctr = n+1
         city = n-1
-        print(reachable)
 
         for i in range(n-1,-1,-1):
             if len(reachable[i]) < min_ctr:
