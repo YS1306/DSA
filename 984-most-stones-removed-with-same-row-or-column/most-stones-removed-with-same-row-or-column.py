@@ -36,6 +36,6 @@ class Solution:
         res = 0
         for i in range(n):
             if parent[i] == i:
-                res += (size[i]-1)
+                res += 1
 
-        return res
+        return n-res
