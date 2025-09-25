@@ -30,11 +30,12 @@ class Solution:
             
         for u, v in connections:
             res = UnionBySize(res, u,v)
-
+        comp = 0
         for node in range(n):
-            find(node)
+            if parent[node] == node:
+                comp +=1 
 
-        comp = len(set(parent))
+        # comp = len(set(parent))
         
         if res >= comp-1:
             return comp-1
