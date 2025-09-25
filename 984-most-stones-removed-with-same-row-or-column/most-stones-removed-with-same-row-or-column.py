@@ -21,11 +21,9 @@ class Solution:
             if size[par_u] < size[par_v]:
                 parent[par_u] = par_v
                 size[par_v] += size[par_u]
-                # return size[par_v]
             else:
                 parent[par_v] = par_u 
                 size[par_u] += size[par_v]
-                # return size[par_u]
             
 
         for i in range(len(stones)):
@@ -36,8 +34,7 @@ class Solution:
                     
                     UnionBySize(i, j)
         
-        print(parent)
-        print(size)
+
         res = 0
         for i in range(n):
             if parent[i] == i:
