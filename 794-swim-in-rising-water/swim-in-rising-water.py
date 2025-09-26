@@ -2,7 +2,7 @@ from heapq import heappush, heappop
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        dist = [[float('inf') for i in range(n)] for i in range(n)]
+        dist = [[n**2+1 for i in range(n)] for i in range(n)]
         q = []
 
         heappush(q, (grid[0][0], 0, 0))
