@@ -16,11 +16,8 @@ class Solution:
 
             parent[par_v] = par_u
 
-             
-        # size = [0]*len(accounts)
-        # ctr = -1
+
         for i in range(len(accounts)):
-            # ctr += 1
             for email in accounts[i][1:]:
                 if belongsTo[email] != -1:
                     Union(belongsTo[email], i)
@@ -30,7 +27,6 @@ class Solution:
     
         
         mails = defaultdict(list)
-        # process_graph = list(graph.items() )   
         for mail, ind in belongsTo.items():
             mails[findP(ind)].append(mail)
         
