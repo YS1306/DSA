@@ -3,6 +3,7 @@ public:
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
         vector<vector<int>> dp(m, vector<int>(n, 0));
+        int right = 0, down = 0;
 
         // Store minimum sum between right and down
 
@@ -18,12 +19,12 @@ public:
         // for(int i = n-2; i >= 0; i--){
             
         // }
-
         for(int i=m-2; i>=0; i--){
             for(int j = n-2; j>=0; j--){
+                right = grid[i][j]+dp[i][j+1];
+                down = grid[i][j]+dp[i+1][j];
                 dp[i][j] = min(
-                    grid[i][j]+dp[i][j+1],
-                    grid[i][j]+dp[i+1][j]
+                    right, down
                 );
             }
         }
