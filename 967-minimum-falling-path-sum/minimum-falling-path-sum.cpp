@@ -8,8 +8,9 @@ public:
 
         for(int i=0; i<n; i++){
             prev[i] = matrix[n-1][i];
+            dp[i] = matrix[n-1][i];
         }
-        dp = vector<int>(prev.begin(), prev.end());
+        
         for(int i=n-2; i>=0; i--){
             
             for(int j=0; j<n; j++){
