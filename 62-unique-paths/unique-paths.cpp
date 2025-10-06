@@ -3,7 +3,8 @@ public:
     int uniquePaths(int m, int n) {
         vector<vector<int>> dp(m , vector<int>(n, 0));
         int right = 0, down = 0;
-        for(int i=0; i<max(m,n); i++){
+        int big = max(m,n);
+        for(int i=0; i<big; i++){
             if(i<n)
                 dp[m-1][i] = 1;
             if(i < m)
@@ -17,7 +18,7 @@ public:
             }
         }
         
-        
+
         return dp[0][0];
         
     }
