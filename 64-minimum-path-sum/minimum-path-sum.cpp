@@ -23,9 +23,10 @@ public:
             for(int j = n-2; j>=0; j--){
                 right = grid[i][j]+dp[i][j+1];
                 down = grid[i][j]+dp[i+1][j];
-                dp[i][j] = min(
-                    right, down
-                );
+                if(right < down)
+                    dp[i][j] = right;
+                else
+                    dp[i][j] = down;
             }
         }
 
