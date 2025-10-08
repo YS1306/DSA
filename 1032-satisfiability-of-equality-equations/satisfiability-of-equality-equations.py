@@ -16,7 +16,6 @@ class Solution:
         def Union(i, j, comp):
             p1 = find(i)
             p2 = find(j)
-            print(i, j, p1, p2)
             if comp == 1 and p1 == p2:
                 return False
             if comp == 0:
@@ -36,7 +35,6 @@ class Solution:
             else:
                 curr = Union(i, j, comp)
         
-        print(parent)
         for i, j, comp in not_equals:
             curr = Union(i, j, comp)
             if not curr:
