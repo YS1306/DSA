@@ -25,11 +25,11 @@ class Solution:
             
             return True
         
-        not_equals = [] 
+        not_equals = set()
         for eqn in equations:
             i, comp, j = eqn[0] , (eqn[1:3] == "!="), eqn[3] 
             if comp == 1:
-                not_equals.append((i, j, comp))
+                not_equals.add((i, j, comp))
             else:
                 curr = Union(i, j, comp)
         
