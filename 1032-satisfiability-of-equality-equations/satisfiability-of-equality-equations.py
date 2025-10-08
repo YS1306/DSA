@@ -5,7 +5,7 @@ class Solution:
         parent = dict()
         
         def find(node):
-            if parent.get(node, -1) == -1:
+            if node not in parent.keys():
                 parent[node] = node
                 return node
             if parent[node] == node:
