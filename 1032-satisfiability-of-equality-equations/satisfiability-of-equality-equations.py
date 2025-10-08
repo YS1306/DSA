@@ -1,12 +1,11 @@
 class Solution:
     def equationsPossible(self, equations: List[str]) -> bool:
-        equal = set()
-        not_equal = set()
         parent = dict()
-        
+        p_keys = set()
         def find(node):
-            if node not in parent.keys():
+            if node not in p_keys:
                 parent[node] = node
+                p_keys.add(node)
                 return node
             if parent[node] == node:
                 return node
@@ -27,7 +26,6 @@ class Solution:
             return True
         
         not_equals = [] 
-        equals = []
         for eqn in equations:
             i, comp, j = eqn[0] , (eqn[1:3] == "!="), eqn[3] 
             if comp == 1:
