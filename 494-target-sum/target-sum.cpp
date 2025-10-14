@@ -3,9 +3,9 @@ class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
         int n = nums.size();
-        int total = 0;
-        for(auto it:nums)
-            total += abs(it);
+        int total = accumulate(nums.begin(), nums.end(), 0);
+        // for(auto it:nums)
+            // total += abs(it);
         
         if(target < 0)
             target *= -1;
