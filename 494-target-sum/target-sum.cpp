@@ -16,7 +16,7 @@ public:
         //     return 2;
         // cout<<target<<"\t"<<total;
         if(target == 0 && total == 0){
-            return pow(2, n);
+            return 1<<n;
         }
 
         vector<unordered_map<int, int>> dp(n);
