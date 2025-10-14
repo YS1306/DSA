@@ -12,8 +12,10 @@ public:
                 int corner = dp[i-1][j-1];
                 if((text1[i-1] == text2[j-1]))
                     dp[i][j] = 1 + corner;
+                else if(left > top)
+                    dp[i][j] = left;
                 else
-                    dp[i][j] = max(left, top);
+                    dp[i][j] = top;
             }
         }
 
