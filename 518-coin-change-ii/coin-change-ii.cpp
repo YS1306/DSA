@@ -14,16 +14,13 @@ public:
         
         for(int i=0; i < n; i++){
             for(int j=1; j<= amount; j++){
-                
                 int not_take = 0;
                 if(i > 0)
                     not_take = dp[i-1][j];
                 int repeat = 0;
-                int no_repeat = 0;
                 if(j >= coins[i]){
                     repeat = dp[i][j-coins[i]];
                 }
-                // if(dp[i][j] < not_take+repeat+no_repeat)
                 dp[i][j] = not_take + (long)repeat;
             }
         }
