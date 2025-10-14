@@ -21,9 +21,9 @@ public:
 
         vector<unordered_map<int, int>> dp(n);
         for(int i = 0; i<n; i++){
-            for(int j=-1*total; j<total+1; j++){
-                dp[i][j] = 0;
-            }
+            // for(int j=-1*total; j<=target; j++){
+            //     dp[i][j] = 0;
+            // }
             dp[i][nums[i]] += 1;
             dp[i][(-1)*nums[i]] += 1;
         }
