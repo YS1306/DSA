@@ -3,7 +3,7 @@ public:
     int change(int amount, vector<int>& coins) {
         int n = coins.size();
 
-        vector<vector<long long>> dp(n, vector<long long>(amount+1, 0));
+        vector<vector<long>> dp(n, vector<long>(amount+1, 0));
 
         for(int i=0; i<n; i++){
             dp[i][0] = 1;
@@ -24,7 +24,7 @@ public:
                     repeat = dp[i][j-coins[i]];
                 }
                 // if(dp[i][j] < not_take+repeat+no_repeat)
-                dp[i][j] = not_take + (long long)repeat;
+                dp[i][j] = not_take + (long)repeat;
             }
         }
 
