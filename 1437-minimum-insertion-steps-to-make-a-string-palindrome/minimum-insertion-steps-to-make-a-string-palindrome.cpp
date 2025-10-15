@@ -14,8 +14,8 @@ public:
                     else
                         dp[i][j] = dp[i][j-1];
                 }
-                if(i == j && dp[i][j] == dp[i-1][j-1])
-                    res++;
+                if(i == j)
+                    res+= (dp[i][j] == dp[i-1][j-1]);
             }
         }        
         
