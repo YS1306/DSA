@@ -8,13 +8,15 @@ public:
                 if(s[i-1] == s[n-j])
                     dp[i][j] = 1+dp[i-1][j-1];
                 else{
-                    if(dp[i-1][j] > dp[i][j-1])
-                        dp[i][j] = dp[i-1][j];
-                    else
-                        dp[i][j] = dp[i][j-1];
+                    // if(dp[i-1][j] > dp[i][j-1])
+                    //     dp[i][j] = dp[i-1][j];
+                    // else
+                    //     dp[i][j] = dp[i][j-1];
+                    dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
                 }
                 
             }
+
         }        
         
         return n-dp[n][n];
