@@ -20,7 +20,6 @@ public:
         
         int i = n, j = m;
         int ind = dp[n][m]-1;
-        cout<<ind<<endl;
         while(i > 0 and j > 0){
             if(word1[i-1] == word2[j-1]){
                 lcs[ind] = word1[i-1];
@@ -34,7 +33,6 @@ public:
                     j--;
             }
         }
-        cout<<lcs;
         
         i = 0;
         j = 0;
