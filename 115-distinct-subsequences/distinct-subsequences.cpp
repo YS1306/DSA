@@ -19,13 +19,15 @@ public:
         if(dp[n][m] != m)   return 0;
         vector<vector<long>> res(n+1, vector<long>(m+1, 1));
         
-
+        int left = 0; 
+        int up = 0;
+        int corner = 0;
         for(int i=1; i<=n; ++i){
             for(int j = 1; j<=m; ++j){
-                int left = 0; 
-                int up = 0;
+                left = 0; 
+                up = 0;
                 if(s[i-1] == t[j-1]){
-                    int corner = res[i-1][j-1];
+                    corner = res[i-1][j-1];
                     if(dp[i-1][j] == dp[i][j])
                         left = res[i-1][j];
                     if(dp[i][j-1] == dp[i][j])
