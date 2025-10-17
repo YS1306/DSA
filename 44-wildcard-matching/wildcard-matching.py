@@ -12,10 +12,10 @@ class Solution:
             else:
                 return False
         
-        if p[0] == "*":
-            for i in range(n+1):
-                dp[i][0] = True
-                dp[i][1] = True
+        # if p[0] == "*":
+        #     for i in range(n+1):
+        #         dp[i][0] = True
+        #         dp[i][1] = True
         for j in range(1,m+1):
             if(p[j-1] == "*"):
                 dp[0][j] = dp[0][j-1]
