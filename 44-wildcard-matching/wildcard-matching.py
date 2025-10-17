@@ -6,11 +6,11 @@ class Solution:
         dp = [[False]*(m+1) for i in range(n+1)]
 
         dp[0][0] = True
-        if m == 0:
-            if n == 0:
-                return True
-            else:
-                return False
+        # if m == 0:
+        #     if n == 0:
+        #         return True
+        #     else:
+        #         return False
         
         # if p[0] == "*":
         #     for i in range(n+1):
