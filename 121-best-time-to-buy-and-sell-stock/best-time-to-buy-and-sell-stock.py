@@ -15,18 +15,6 @@ class Solution:
             else:
                 nge[i] = 0
             st.append(i)
-        print(nge)
         return res
-
-
-        res = [0]*n
-        maxi = 0
-        for i in range(n-1, -1, -1):
-            if(nge[i] == n):
-                res[i] == 0
-            else:
-                res[i] = prices[nge[i]]-prices[i]+res[nge[i]]
-                if res[i] > maxi:
-                    maxi = res[i]
-        return maxi
+        
             
