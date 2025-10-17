@@ -18,6 +18,15 @@ class Solution:
                     insertion = 1 + dp[i-1][j]
                     deletion = 1 + dp[i][j-1]
                     replacement = 1 + dp[i-1][j-1]
-                    dp[i][j] = min(insertion, deletion, replacement)
-        print(dp)
+                    if(insertion <= deletion and insertion <= replacement):
+                        # print(insertion, deletion, replacement)
+                        dp[i][j] = insertion
+                        # print(dp[i][j])
+                    elif(insertion >= deletion and deletion <= replacement):
+                        dp[i][j] = deletion
+                    else:
+                        dp[i][j] = replacement
+
+                
+        # print(dp)
         return dp[n][m]
