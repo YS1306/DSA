@@ -2,7 +2,7 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         st = []
-        nge = [0 for i in range(n)]
+        nge = [0]*n
         st.append(n-1)
         res = 0
         for i in range(n-2, -1, -1):
