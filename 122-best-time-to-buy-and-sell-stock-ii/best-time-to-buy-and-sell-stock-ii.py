@@ -1,6 +1,5 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # Can be solved using the nge approach
         n = len(prices)
         i = 0
         profit = 0
