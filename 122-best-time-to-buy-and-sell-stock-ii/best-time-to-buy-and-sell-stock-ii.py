@@ -8,10 +8,6 @@ class Solution:
         while(j < n):
             if prices[i] <= prices[j]:
                 profit += prices[j]-prices[i]
-                i = j
-                j = i+1
-            else:
-                i = j
-                j = i+1
-        print(profit)
+            i = j
+            j = i+1
         return profit
