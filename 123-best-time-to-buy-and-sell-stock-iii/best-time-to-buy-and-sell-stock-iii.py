@@ -1,4 +1,3 @@
-from heapq import heapify, heappush, heappop
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:  
         n = len(prices)
