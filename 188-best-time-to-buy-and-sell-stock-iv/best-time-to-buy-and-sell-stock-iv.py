@@ -2,7 +2,6 @@ class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
         n = len(prices)
         dp = [[[0]*(k+1) for j in range(2)] for i in range(n+1) ]
-        print()
         for i in range(n-1, -1, -1):
             for buy in range(2):
                 for cap in range(1,k+1):
