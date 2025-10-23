@@ -12,11 +12,9 @@ class Solution:
                             dp[i][buy][cap] = -prices[i]+dp[i+1][0][cap]
                         else:
                             dp[i][buy][cap] = dp[i+1][1][cap]
-                        # dp[i][buy][cap] = max(-prices[i]+dp[i+1][0][cap], dp[i+1][1][cap])
                     else:
                         if prices[i]+dp[i+1][1][cap-1] > dp[i+1][0][cap]:
                             dp[i][buy][cap] = prices[i]+dp[i+1][1][cap-1]
                         else:
                             dp[i][buy][cap] = dp[i+1][0][cap]
-                        # dp[i][buy][cap] = max(prices[i]+dp[i+1][1][cap-1], dp[i+1][0][cap])
         return dp[0][1][2]
