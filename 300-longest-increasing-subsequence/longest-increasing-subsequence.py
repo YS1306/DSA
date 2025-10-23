@@ -5,9 +5,8 @@ class Solution:
 
         for i in range(n):
             for j in range(i):
-                inc = 0
                 if nums[i] > nums[j]:
                     inc = 1+dp[j]
-                d_inc = dp[i]
-                dp[i] = max(inc, d_inc)
+                    if dp[i] < inc:
+                        dp[i] = inc
         return max(dp)
